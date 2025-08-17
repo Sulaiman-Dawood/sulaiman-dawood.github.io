@@ -43,32 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    function animateElements() {
-        const elements = document.querySelectorAll('.fade-in');
-        
-        elements.forEach(element => {
-            const rect = element.getBoundingClientRect();
-            const isVisible = rect.top < window.innerHeight - 100;
-            
-            if (isVisible) {
-                element.classList.add('visible');
-            }
-        });
-    }
-    
-    function fadeInOnScroll() {
-        const elements = document.querySelectorAll('.fade-in');
-        
-        elements.forEach(element => {
-            const rect = element.getBoundingClientRect();
-            const isVisible = rect.top < window.innerHeight - 100;
-            
-            if (isVisible) {
-                element.classList.add('visible');
-            }
-        });
-    }
-    
     function updateActiveNavLink() {
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-link');
@@ -89,8 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
-    animateElements();
     
     const socialLinks = document.querySelectorAll('.hero-social-link, .footer-social-link');
     socialLinks.forEach(link => {
@@ -193,27 +165,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    const toolItems = document.querySelectorAll('.tool-item');
-    
-    toolItems.forEach((item, index) => {
-        item.style.animationDelay = `${index * 0.1}s`;
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        observer.observe(item);
-    });
-    
-    const fadeElements = document.querySelectorAll('.about-text, .project-card');
-    fadeElements.forEach(element => {
-        element.classList.add('fade-in');
-    });
-    
     const skillTags = document.querySelectorAll('.skill-tag');
     skillTags.forEach((tag, index) => {
         tag.style.opacity = '1';
@@ -277,64 +228,3 @@ style.textContent = `
 `;
 
 document.head.appendChild(style);
-
-function createDots() {
-    const container = document.getElementById('dots-container');
-    if (!container) return;
-    
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
-    const dotSpacing = 50;
-    
-    container.innerHTML = '';
-    
-    for (let x = 0; x < windowWidth; x += dotSpacing) {
-        for (let y = 0; y < windowHeight; y += dotSpacing) {
-            const dot = document.createElement('div');
-            dot.className = 'dot';
-            dot.style.left = x + 'px';
-            dot.style.top = y + 'px';
-            container.appendChild(dot);
-        }
-    }
-    
-    console.log('تم إنشاء النقاط بنجاح!');
-}
-
-setTimeout(createDots, 1000);
-
-window.addEventListener('resize', createDots);
-
-(function initCanvasDots(){
-    const canvas = document.getElementById('bg-dots');
-    if(!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let w, h, deviceRatio;
-    function resize(){
-        deviceRatio = window.devicePixelRatio || 1;
-        w = window.innerWidth; h = window.innerHeight;
-        canvas.width = w * deviceRatio;
-        canvas.height = h * deviceRatio;
-        canvas.style.width = w + 'px';
-        canvas.style.height = h + 'px';
-        ctx.scale(deviceRatio, deviceRatio);
-    }
-    function draw(t){
-        ctx.clearRect(0,0,w,h);
-        const spacing = 60;
-        const radius = 2;
-        const offset = (t * 0.01) % spacing;
-        ctx.fillStyle = 'rgba(255,255,255,0.35)';
-        for(let x = -spacing; x < w + spacing; x += spacing){
-            for(let y = -spacing; y < h + spacing; y += spacing){
-                ctx.beginPath();
-                ctx.arc(x + offset, y + offset, radius, 0, Math.PI*2);
-                ctx.fill();
-            }
-        }
-        requestAnimationFrame(draw);
-    }
-    resize();
-    window.addEventListener('resize', resize);
-    requestAnimationFrame(draw);
-})();

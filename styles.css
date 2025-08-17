@@ -17,22 +17,6 @@ body {
     letter-spacing: 0.3px;
 }
 
-#dots-container {
-    display: none;
-}
-
-.dot {
-    display: none;
-}
-
-.background-dots {
-    display: none;
-}
-
-body::before {
-    display: none;
-}
-
 
 
 .container {
@@ -105,7 +89,7 @@ body::before {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: #000000; /* base layer */
+    background: #000000;
     position: relative;
     overflow: hidden;
     color: white;
@@ -116,7 +100,7 @@ body::before {
     width: 100%;
     max-width: none;
     margin: 0;
-    padding: 0 30px 0 30px; /* uniform horizontal padding */
+    padding: 0 30px 0 30px;
     text-align: left;
     display: flex;
     align-items: center;
@@ -141,7 +125,6 @@ body::before {
     opacity: .55;
 }
 
-/* Deeper parallax layer (larger, softer) */
 .hero::after {
     background-image:
     radial-gradient(circle at 8px 8px, rgba(255,255,255,0.22) 3px, transparent 3px),
@@ -173,7 +156,6 @@ body::before {
     font-size: 2rem;
     font-weight: 300;
     letter-spacing: 1px;
-    /* removed uppercase to keep only first letter capital */
     margin-bottom: 0.3rem;
     color: #888;
 }
@@ -715,17 +697,6 @@ body::before {
         transform: translateX(0);
         opacity: 1;
     }
-}
-
-.fade-in {
-    opacity: 1;
-    transform: translateY(0);
-    transition: all 0.6s ease;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .loading {
