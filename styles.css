@@ -574,6 +574,14 @@ body::before {
         padding-top: 50px;
     }
 
+    .hero-greeting {
+        font-size: 1.3rem;
+    }
+
+    .hero-social {
+        justify-content: flex-start;
+    }
+
     .nav-menu {
         position: fixed;
         right: -100%;
@@ -615,10 +623,6 @@ body::before {
     .projects-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
-    }
-
-    .hero-social {
-        justify-content: center;
     }
 
     .footer-content {
