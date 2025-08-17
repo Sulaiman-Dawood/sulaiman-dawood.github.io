@@ -562,6 +562,18 @@ body::before {
 }
 
 @media (max-width: 768px) {
+    .header {
+        display: none;
+    }
+
+    .hero {
+        padding-top: 0;
+    }
+
+    .hero-content {
+        padding-top: 50px;
+    }
+
     .nav-menu {
         position: fixed;
         right: -100%;
