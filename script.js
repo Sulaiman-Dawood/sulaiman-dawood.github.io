@@ -1,7 +1,5 @@
-// Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Mobile Navigation Toggle
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
     
@@ -17,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Close mobile menu when clicking on a link
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
@@ -28,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Smooth scrolling for navigation links
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -47,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Remove skill bar animation since we removed skill bars
     function animateElements() {
         const elements = document.querySelectorAll('.fade-in');
         
@@ -61,7 +56,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Fade in animation for sections
     function fadeInOnScroll() {
         const elements = document.querySelectorAll('.fade-in');
         
@@ -75,7 +69,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Active navigation link highlighting
     function updateActiveNavLink() {
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-link');
@@ -97,12 +90,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Initialize elements
     animateElements();
     
-    // Remove contact form handling since contact section is removed
-    
-    // Enhanced social links interaction
     const socialLinks = document.querySelectorAll('.hero-social-link, .footer-social-link');
     socialLinks.forEach(link => {
         link.addEventListener('mouseenter', function() {
@@ -114,15 +103,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Email validation function
     function isValidEmail(email) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     }
     
-    // Notification system
     function showNotification(message, type = 'info') {
-        // Remove existing notifications
         const existingNotifications = document.querySelectorAll('.notification');
         existingNotifications.forEach(notification => notification.remove());
         
@@ -135,7 +121,6 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         `;
         
-        // Add styles
         notification.style.cssText = `
             position: fixed;
             top: 100px;
@@ -154,19 +139,16 @@ document.addEventListener('DOMContentLoaded', function() {
         
         document.body.appendChild(notification);
         
-        // Animate in
         setTimeout(() => {
             notification.style.transform = 'translateX(0)';
         }, 100);
         
-        // Close button functionality
         const closeButton = notification.querySelector('.notification-close');
         closeButton.addEventListener('click', function() {
             notification.style.transform = 'translateX(400px)';
             setTimeout(() => notification.remove(), 300);
         });
         
-        // Auto remove after 5 seconds
         setTimeout(() => {
             if (notification.parentNode) {
                 notification.style.transform = 'translateX(400px)';
@@ -175,7 +157,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 5000);
     }
     
-    // Typing animation for hero section
     function typeWriter(element, text, speed = 100) {
         let i = 0;
         element.innerHTML = '';
@@ -191,7 +172,6 @@ document.addEventListener('DOMContentLoaded', function() {
         type();
     }
     
-    // Initialize typing animation
     const heroSubtitle = document.querySelector('.hero-subtitle');
     if (heroSubtitle) {
         const subtitleText = heroSubtitle.textContent;
@@ -201,7 +181,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1000);
     }
     
-    // Project card hover effects
     const projectCards = document.querySelectorAll('.project-card');
     
     projectCards.forEach(card => {
@@ -214,7 +193,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Tool items animation
     const toolItems = document.querySelectorAll('.tool-item');
     
     toolItems.forEach((item, index) => {
@@ -231,13 +209,11 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(item);
     });
     
-    // Add fade-in class to elements that should animate
     const fadeElements = document.querySelectorAll('.about-text, .project-card');
     fadeElements.forEach(element => {
         element.classList.add('fade-in');
     });
     
-    // Ensure skill tags are visible
     const skillTags = document.querySelectorAll('.skill-tag');
     skillTags.forEach((tag, index) => {
         tag.style.opacity = '1';
@@ -245,9 +221,7 @@ document.addEventListener('DOMContentLoaded', function() {
         tag.style.transition = 'all 0.3s ease';
     });
     
-    // Keyboard navigation
     document.addEventListener('keydown', function(e) {
-        // ESC key to close mobile menu
         if (e.key === 'Escape' && navMenu.classList.contains('active')) {
             navMenu.classList.remove('active');
             const icon = navToggle.querySelector('i');
@@ -256,11 +230,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Initialize all animations and effects
     console.log('Portfolio website loaded successfully! 🚀');
 });
 
-// Add CSS for animations
 const style = document.createElement('style');
 style.textContent = `
     @keyframes fadeInUp {
@@ -306,19 +278,16 @@ style.textContent = `
 
 document.head.appendChild(style);
 
-// Create dots background
 function createDots() {
     const container = document.getElementById('dots-container');
     if (!container) return;
     
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
-    const dotSpacing = 50; // مسافة بين النقاط
+    const dotSpacing = 50;
     
-    // إزالة النقاط الموجودة
     container.innerHTML = '';
     
-    // إنشاء النقاط
     for (let x = 0; x < windowWidth; x += dotSpacing) {
         for (let y = 0; y < windowHeight; y += dotSpacing) {
             const dot = document.createElement('div');
@@ -332,13 +301,10 @@ function createDots() {
     console.log('تم إنشاء النقاط بنجاح!');
 }
 
-// إنشاء النقاط عند تحميل الصفحة
 setTimeout(createDots, 1000);
 
-// إعادة إنشاء النقاط عند تغيير حجم النافذة
 window.addEventListener('resize', createDots);
 
-// Canvas dynamic dots background (fallback reliable)
 (function initCanvasDots(){
     const canvas = document.getElementById('bg-dots');
     if(!canvas) return;
@@ -355,9 +321,9 @@ window.addEventListener('resize', createDots);
     }
     function draw(t){
         ctx.clearRect(0,0,w,h);
-        const spacing = 60; // مسافة الشبكة
-        const radius = 2;   // نصف قطر النقطة
-        const offset = (t * 0.01) % spacing; // حركة بسيطة بطيئة
+        const spacing = 60;
+        const radius = 2;
+        const offset = (t * 0.01) % spacing;
         ctx.fillStyle = 'rgba(255,255,255,0.35)';
         for(let x = -spacing; x < w + spacing; x += spacing){
             for(let y = -spacing; y < h + spacing; y += spacing){
