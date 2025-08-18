@@ -121,19 +121,33 @@ body {
         radial-gradient(circle at 22px 22px, rgba(0, 123, 255, 0.986) 2px, transparent 2px);
     background-size: 70px 70px, 70px 70px;
     background-position: 0 0, 35px 35px;
-    animation: heroDotsShift 5s linear infinite;
+    -webkit-animation: heroDotsShift 10s linear infinite;
+    -moz-animation: heroDotsShift 10s linear infinite;
+    -o-animation: heroDotsShift 10s linear infinite;
+    animation: heroDotsShift 10s linear infinite;
     opacity: .75;
+    will-change: background-position;
+    transform: translateZ(0);
 }
 
 .hero::after {
     background-image:
-    radial-gradient(circle at 8px 8px, rgba(255,255,255,0.22) 3px, transparent 3px),
-    radial-gradient(circle at 38px 38px, rgba(0, 110, 255, 0.915) 4px, transparent 4px);
-    background-size: 95px 95px, 135px 135px;
-    background-position: 0 0, 48px 48px;
+    radial-gradient(circle at 8px 8px, rgba(255,255,255,0.22) 3px, transparent 3px);
+    background-size: 95px 95px;
+    background-position: 0 0;
     mix-blend-mode: lighten;
     opacity: .35;
 }
+}
+
+@-webkit-keyframes heroDotsShift {
+    0% { background-position: 0 0, 35px 35px; }
+    100% { background-position: 70px 70px, 105px 105px; }
+}
+
+@-moz-keyframes heroDotsShift {
+    0% { background-position: 0 0, 35px 35px; }
+    100% { background-position: 70px 70px, 105px 105px; }
 }
 
 @keyframes heroDotsShift {
