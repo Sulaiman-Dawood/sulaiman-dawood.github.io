@@ -128,7 +128,7 @@ body {
 .hero::after {
     background-image:
     radial-gradient(circle at 8px 8px, rgba(255,255,255,0.22) 3px, transparent 3px),
-    radial-gradient(circle at 38px 38px, rgba(100,170,255,0.15) 4px, transparent 4px);
+    radial-gradient(circle at 38px 38px, rgba(14, 117, 252, 0.915) 4px, transparent 4px);
     background-size: 95px 95px, 135px 135px;
     background-position: 0 0, 48px 48px;
     mix-blend-mode: lighten;
