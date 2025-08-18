@@ -121,7 +121,7 @@ body {
         radial-gradient(circle at 22px 22px, rgba(0, 123, 255, 0.986) 2px, transparent 2px);
     background-size: 70px 70px, 70px 70px;
     background-position: 0 0, 35px 35px;
-    animation: heroDotsMove 3s linear infinite;
+    animation: heroDotsShift 3s linear infinite;
     opacity: .75;
 }
 
@@ -148,8 +148,14 @@ body {
     0% { 
         background-position: 0px 0px, 35px 35px; 
     }
+    25% {
+        background-position: 17px 17px, 52px 52px;
+    }
     50% {
         background-position: 35px 35px, 70px 70px;
+    }
+    75% {
+        background-position: 52px 52px, 87px 87px;
     }
     100% { 
         background-position: 70px 70px, 105px 105px; 
