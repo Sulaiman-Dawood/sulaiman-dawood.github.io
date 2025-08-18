@@ -115,6 +115,7 @@ body {
     pointer-events: none;
 }
 
+
 .hero::before {
     background-image:
         radial-gradient(circle at 2px 2px, rgba(255,255,255,0.45) 2px, transparent 2px),
@@ -134,7 +135,8 @@ body {
     mix-blend-mode: lighten;
     opacity: .35;
 }
-}
+
+
 
 @keyframes heroDotsShift {
     0% { background-position: 0 0, 35px 35px; }
