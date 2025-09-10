@@ -674,14 +674,15 @@ body {
     .hero-content {
         flex-direction: column;
         justify-content: center;
-        padding-top: 50px;
-        gap: 2.5rem;
+        padding-top: 30px;
+        gap: 2rem;
     }
 
     .hero-image-container {
         width: 200px;
         height: 200px;
         margin: 0 auto;
+        order: -1;
     }
 
     .hero-text {
