@@ -75,60 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-    
-    function showNotification(message, type = 'info') {
-        const existingNotifications = document.querySelectorAll('.notification');
-        existingNotifications.forEach(notification => notification.remove());
-        
-        const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
-        notification.innerHTML = `
-            <div class="notification-content">
-                <span class="notification-message">${message}</span>
-                <button class="notification-close">&times;</button>
-            </div>
-        `;
-        
-        notification.style.cssText = `
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            background: ${type === 'success' ? '#27ae60' : type === 'error' ? '#e74c3c' : '#3498db'};
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            z-index: 10000;
-            transform: translateX(400px);
-            transition: transform 0.3s ease;
-            max-width: 400px;
-            direction: ltr;
-        `;
-        
-        document.body.appendChild(notification);
-        
-        setTimeout(() => {
-            notification.style.transform = 'translateX(0)';
-        }, 100);
-        
-        const closeButton = notification.querySelector('.notification-close');
-        closeButton.addEventListener('click', function() {
-            notification.style.transform = 'translateX(400px)';
-            setTimeout(() => notification.remove(), 300);
-        });
-        
-        setTimeout(() => {
-            if (notification.parentNode) {
-                notification.style.transform = 'translateX(400px)';
-                setTimeout(() => notification.remove(), 300);
-            }
-        }, 5000);
-    }
-    
     function typeWriter(element, text, speed = 100) {
         let i = 0;
         element.innerHTML = '';
@@ -181,22 +127,30 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
+    // Skills expansion functionality
+    const expandSkillsBtn = document.getElementById('expand-skills');
+    const additionalSkills = document.getElementById('additional-skills');
+    
+    if (expandSkillsBtn && additionalSkills) {
+        expandSkillsBtn.addEventListener('click', function() {
+            additionalSkills.classList.toggle('show');
+            
+            // Change the Python to show expanded state
+            if (additionalSkills.classList.contains('show')) {
+                expandSkillsBtn.textContent = 'Python';
+                expandSkillsBtn.style.fontSize = '0.85rem';
+            } else {
+                expandSkillsBtn.textContent = 'Python';
+                expandSkillsBtn.style.fontSize = '0.95rem';
+            }
+        });
+    }
+    
     console.log('Portfolio website loaded successfully! 🚀');
 });
 
 const style = document.createElement('style');
 style.textContent = `
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
     .notification-content {
         display: flex;
         align-items: center;
