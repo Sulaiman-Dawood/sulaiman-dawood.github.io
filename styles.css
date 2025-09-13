@@ -232,7 +232,6 @@ body {
 }
 
 .hero-social-link i, .footer-social-link i { font-size: 1.3rem; }
-.project-image i { font-size: 2.2rem; color:#007AFF; }
 
 .section-title {
     text-align: left;
@@ -304,12 +303,22 @@ body {
     animation: borderShimmer 2s ease-in-out infinite;
 }
 
-.expand-skills:hover {
+.expand-skills2 {
+    background: transparent;
+    cursor: pointer;
+    border: 2px solid #007AFF;
+    color: #007AFF !important;
+    position: relative;
+    overflow: hidden;
+    animation: borderShimmer 2s ease-in-out infinite;
+}
+
+.expand-skills:hover, .expand-skills2:hover {
     transform: scale(1.1);
     box-shadow: 0 0 15px rgba(0, 122, 255, 0.5);
 }
 
-.expand-skills::before {
+.expand-skills::before, .expand-skills2::before {
     content: '';
     position: absolute;
     top: -2px;
@@ -323,7 +332,7 @@ body {
     border-radius: inherit;
 }
 
-.expand-skills::after {
+.expand-skills::after, .expand-skills2::after {
     content: '';
     position: absolute;
     top: 0;
@@ -359,13 +368,21 @@ body {
     margin-top: 0;
 }
 
-.additional-skills.show {
+.additional-skills2 {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.3s ease-out;
+    opacity: 0;
+    margin-top: 0;
+}
+
+.additional-skills.show, .additional-skills2.show {
     max-height: 200px;
     opacity: 1;
     margin-top: 1rem;
 }
 
-.additional-skills-content {
+.additional-skills-content, .additional-skills-content2 {
     display: flex;
     flex-wrap: wrap;
     gap: 0.8rem;
@@ -543,10 +560,6 @@ body {
 
 .project-card:hover {
     border-color: #007AFF;
-}
-
-.project-image {
-    display: none;
 }
 
 .project-title {
@@ -751,7 +764,6 @@ body {
     }
 }
 
-
 @media (max-width: 480px) {
     .nav {
         padding: 1rem;
@@ -770,7 +782,7 @@ body {
     }
 
     .section-title {
-        font-size: 1.5rem;
+        font-size: 2.2rem;
     }
 
     .experience-item,
@@ -782,10 +794,37 @@ body {
     .skills-list {
         justify-content: center;
     }
-}
 
-.animate-skills {
-    animation: slideInFromRight 1s ease-out;
+    .about-description {
+        font-size: 1rem;
+    }
+    .skills-section h3 {
+        font-size: 1.2rem;
+    }
+    .skill-tag {
+        font-size: 0.85rem;
+    }
+    .experience-header h3, .education-header h3 {
+        font-size: 1.2rem;
+    }
+    .experience-bullets li, .education-bullets li {
+        font-size: 0.95rem;
+    }
+    .project-title {
+        font-size: 1.2rem;
+    }
+    .project-description {
+        font-size: 0.95rem;
+    }
+    .tech-tag {
+        font-size: 0.8rem;
+    }
+    .project-link {
+        font-size: 0.9rem;
+    }
+    .footer-content p {
+        font-size: 0.9rem;
+    }
 }
 
 @keyframes slideInFromRight {
